@@ -18,6 +18,8 @@ def copy_raw_files_to_input_folder(n):
     """Generate n copies of the raw files in the input folder"""
     raw_folder = "files/raw"
     input_folder = "files/input"
+    if os.path.exists(input_folder):
+        shutil.rmtree(input_folder)
     os.makedirs(input_folder, exist_ok=True)
     raw_files = glob.glob(os.path.join(raw_folder, "*"))
     if not raw_files:
